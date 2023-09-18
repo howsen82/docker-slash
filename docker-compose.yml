@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  slash:
+    container_name: slash
+    image: yourselfhosted/slash:latest
+    volumes:
+      - /data/slash:/var/opt/slash:rw
+    ports:
+      - 5231:5231
+    mem_limit: 2g
+    cpu_shares: 768
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
